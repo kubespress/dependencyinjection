@@ -32,7 +32,7 @@ type Container struct {
 }
 
 // Register registers a new value provider in the dependency injection container.
-func Register[T any](ctx context.Context, container *Container, provider Provider[T]) error {
+func Register[T any](container *Container, provider Provider[T]) error {
 	// Lock the map
 	container.mu.Lock()
 	defer container.mu.Unlock()
@@ -58,8 +58,8 @@ func Register[T any](ctx context.Context, container *Container, provider Provide
 }
 
 // MustRegister registers a new value provider in the dependency injection container. The method panics on error.
-func MustRegister[T any](ctx context.Context, container *Container, provider Provider[T]) {
-	must(Register(ctx, container, provider))
+func MustRegister[T any](container *Container, provider Provider[T]) {
+	must(Register(container, provider))
 }
 
 // Get retrieves an object from the container, constructing it if necessary

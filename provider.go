@@ -44,13 +44,13 @@ func NewValueProvider[T any](value T) Provider[T] {
 
 // RegisterValue adds a value to the dependency injection container. It is equivalent to calling
 // `Register(ctx, container, NewValueProvider(value))`
-func RegisterValue[T any](ctx context.Context, container *Container, value T) error {
-	return Register(ctx, container, NewValueProvider(value))
+func RegisterValue[T any](container *Container, value T) error {
+	return Register(container, NewValueProvider(value))
 }
 
 // MustRegisterValue adds a value to the dependency injection container. The method panics on error.
-func MustRegisterValue[T any](ctx context.Context, container *Container, value T) {
-	must(RegisterValue(ctx, container, value))
+func MustRegisterValue[T any](container *Container, value T) {
+	must(RegisterValue(container, value))
 }
 
 func (p *valueProvider[T]) Resolve(context.Context, *Container) (T, error) {
@@ -73,13 +73,13 @@ func NewFactoryProvider[T any](fn Constructor[T]) Provider[T] {
 
 // RegisterFactory adds a factory to the dependency injection container. It is equivalent to calling
 // `Register(ctx, container, NewFactoryProvider(fn))`
-func RegisterFactory[T any](ctx context.Context, container *Container, fn Constructor[T]) error {
-	return Register(ctx, container, NewFactoryProvider(fn))
+func RegisterFactory[T any](container *Container, fn Constructor[T]) error {
+	return Register(container, NewFactoryProvider(fn))
 }
 
 // MustRegisterFactory adds a factory to the dependency injection container. The method panics on error.
-func MustRegisterFactory[T any](ctx context.Context, container *Container, fn Constructor[T]) {
-	must(RegisterFactory(ctx, container, fn))
+func MustRegisterFactory[T any](container *Container, fn Constructor[T]) {
+	must(RegisterFactory(container, fn))
 }
 
 func (p *factoryProvider[T]) Resolve(ctx context.Context, container *Container) (T, error) {
@@ -123,13 +123,13 @@ func NewSingletonProvider[T any](fn Constructor[T]) Provider[T] {
 
 // RegisterSingleton adds a singleton to the dependency injection container. It is equivalent to calling
 // `Register(ctx, container, NewSingletonProvider(fn))`
-func RegisterSingleton[T any](ctx context.Context, container *Container, fn Constructor[T]) error {
-	return Register(ctx, container, NewSingletonProvider(fn))
+func RegisterSingleton[T any](container *Container, fn Constructor[T]) error {
+	return Register(container, NewSingletonProvider(fn))
 }
 
 // MustRegisterSingleton adds a singleton to the dependency injection container. The method panics on error.
-func MustRegisterSingleton[T any](ctx context.Context, container *Container, fn Constructor[T]) {
-	must(RegisterSingleton(ctx, container, fn))
+func MustRegisterSingleton[T any](container *Container, fn Constructor[T]) {
+	must(RegisterSingleton(container, fn))
 }
 
 func (p *singletonProvider[T]) Resolve(ctx context.Context, container *Container) (T, error) {
