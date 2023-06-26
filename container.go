@@ -20,6 +20,8 @@ import (
 	"context"
 	"reflect"
 	"sync"
+
+	"github.com/kubespress/errors"
 )
 
 // Global is the default global dependency container
@@ -84,6 +86,16 @@ func Get[T any](ctx context.Context, container *Container) (T, error) {
 
 	// Unknown type
 	return *new(T), ErrDependencyNotRegistered{typ}
+}
+
+// Inject gets a dependency into a pointer receiver
+func Inject[T any](ctx context.Context, container *Container, into *T) (err error) {
+	if into == nil {
+		return errors.Enrich(ErrNilReceiver{}, errors.WithStack())
+	}
+
+	*into, err = Get[T](ctx, container)
+	return err
 }
 
 func typeof[T any]() reflect.Type {

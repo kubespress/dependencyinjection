@@ -69,3 +69,16 @@ func (e ErrDependencyCycle) Error() string {
 func IsDependencyCycle(err error) bool {
 	return errors.As(err, &ErrDependencyCycle{})
 }
+
+// ErrNilReceiver is the type of error returned when a nil receiver is used in
+// the Inject method
+type ErrNilReceiver struct{}
+
+func (e ErrNilReceiver) Error() string {
+	return "nil receiver for dependency"
+}
+
+// IsNilReceiver returns true if the error is a ErrNilReceiver
+func IsNilReceiver(err error) bool {
+	return errors.As(err, &ErrNilReceiver{})
+}
