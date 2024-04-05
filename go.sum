@@ -14,6 +14,8 @@ github.com/google/pprof v0.0.0-20210407192527-94a9f03dee38/go.mod h1:kpwsk12EmLe
 github.com/ianlancetaylor/demangle v0.0.0-20200824232613-28f6c0f3b639/go.mod h1:aSSvb/t6k1mPoxDqO4vJh6VOCGPwU4O0C2/Eqndh1Sc=
 github.com/kubespress/errors v0.0.0-20230427202735-e41af624749d h1:qQ8encJZuCx610opdefDBdCCNrzOQemOmwAsaxmvIJU=
 github.com/kubespress/errors v0.0.0-20230427202735-e41af624749d/go.mod h1:JDhtE1Paki55zmaSIx0d2KAsJU7xuc8uGuoq/kwrioA=
+github.com/kubespress/errors v0.0.0-20240206111726-6e9a8095966f h1:RuAv0zSEoYkJ0CWYUfULLDkYqF/enRcgIBXzPcIK2ac=
+github.com/kubespress/errors v0.0.0-20240206111726-6e9a8095966f/go.mod h1:JDhtE1Paki55zmaSIx0d2KAsJU7xuc8uGuoq/kwrioA=
 github.com/onsi/ginkgo/v2 v2.9.2 h1:BA2GMJOtfGAfagzYtrAlufIP0lq6QERkFmHLMLPwFSU=
 github.com/onsi/ginkgo/v2 v2.9.2/go.mod h1:WHcJJG2dIlcCqVfBAwUCrJxSPFb6v4azBwgxeMeDuts=
 github.com/onsi/gomega v1.27.6 h1:ENqfyGeS5AX/rlXDd/ETokDz93u0YufY1Pgxuy/PvWE=
